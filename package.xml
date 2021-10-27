@@ -2,7 +2,7 @@
 <package format="2">
   <name>turtlebot3_mr</name>
   <version>0.0.0</version>
-  <description>The turtlebot3_mr package</description>
+  <description>The mobile_robotics package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->

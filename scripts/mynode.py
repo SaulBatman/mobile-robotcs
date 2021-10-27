@@ -38,24 +38,26 @@ if __name__ == '__main__':
         #msg.angular.z = 4 * math.atan2(trans.transform.translation.y, trans.transform.translation.x)
         #msg.linear.x = 0.5 * math.sqrt(trans.transform.translation.x ** 2 + trans.transform.translation.y **2) 
     
-    T = 10
+    T = 10/0.4
     
     ome = logm(solve(X,Y))/T
 
     mymsg.linear.x= ome[0,2]
     mymsg.angular.z = -ome[0,1]
     pub = rospy.Publisher('/cmd_vel', geometry_msgs.msg.Twist, queue_size=10)
-    start_t=time.time()
+    start = rospy.Time.now().to_sec()
+   
     
     while not rospy.is_shutdown():
         pub.publish(mymsg)
+        #rate.sleep()
+        now = rospy.Time.now().to_sec()
+        if now-start>T:
+            break
         rate.sleep()
 
-        if time.time()-start_t==10:
-            break
-
     while not rospy.is_shutdown():
-        mymsg.linear = [0,0,0]
-        mymsg.angular = [0,0,0]
+        mymsg.linear.x= 0
+        mymsg.angular.z = 0
         pub.publish(mymsg)
-
+        rate.sleep()
