@@ -1,6 +1,7 @@
 # mobile_robotics
 
 ## Mobile Robotics Lab2
+Mingxi Jia
 ```
 cd ~/catkin_ws
 catkin_make
