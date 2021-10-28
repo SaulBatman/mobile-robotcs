@@ -1,7 +1,21 @@
 # mobile_robotics
 
 ## Mobile Robotics Lab2
-Mingxi Jia
+by Mingxi Jia
+
+### Building environment
+```
+cd ~/catkin_ws/src
+git clone -b noetic-devel https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
+cd ~/catkin_ws
+catkin build
+source ~/catkin_ws/devel/setup.bash
+
+export TURTLEBOT3_MODEL=burger
+roslaunch turtlebot3_gazebo turtlebot3_empty_world.launch
+```
+
+### Running code
 ```
 cd ~/catkin_ws
 catkin_make
